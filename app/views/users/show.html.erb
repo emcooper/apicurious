@@ -1,1 +1,4 @@
-<%= @user.followers %>
+<img src="<%= @user.profile_picture %>" alt="user_profile_picture">
+<%= "Followers (#{@user.num_followers})" %>
+<%= "Following (#{@user.num_following})" %>
+<%= "Starred (#{@user.num_starred_repos})" %>

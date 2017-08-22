@@ -1,14 +1,11 @@
 class UsersController < ApplicationController
 
   def show
-    @user = current_user
-    # @conn = Faraday.new(url: "https://api.github.com") do |faraday|
-    #   faraday.headers["X-API-KEY"] = ENV["propublica-key"]
-    #   faraday.adapter Faraday.default_adapter
-    # end
-    response = Faraday.get("https://api.github.com/users/#{@user.username}") if @user
+    response = Faraday.get("https://api.github.com/users/#{current_user.username}")
     attributes = JSON.parse(response.body, symbolize_names: :true)
+    starred_repos = Faraday.get("https://api.github.com/users/#{current_user.username}/starred")
+    num_starred_repos = JSON.parse(starred_repos.body).count
+    attributes[:num_starred_repos] = num_starred_repos
     @user = User.new(attributes)
   end
-
 end
