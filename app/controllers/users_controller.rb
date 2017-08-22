@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     # end
     response = Faraday.get("https://api.github.com/users/#{@user.username}") if @user
     attributes = JSON.parse(response.body, symbolize_names: :true)
+    @user = User.new(attributes)
   end
 
 end
