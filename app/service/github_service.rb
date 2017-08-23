@@ -1,4 +1,0 @@
-class GithubService
-  
-
-end

@@ -9,6 +9,7 @@ RSpec.feature "user logs in" do
       click_link "Login with Github"
 
       expect(page).to have_content("Ellen Cooper")
+      expect(page).to have_content("Followers (0)")
       expect(page).to have_link("Log Out")
     end
   end
