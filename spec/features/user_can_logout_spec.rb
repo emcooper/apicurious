@@ -1,6 +1,5 @@
 RSpec.feature "User clicks log out" do
   xit "they are logged out and redirected to root" do
-    user = create(:user)
 
     visit '/'
     click_on "Log Out"

@@ -38,7 +38,8 @@
         <ul class="navbar-nav">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <img class = "picture-navbar" src="<%= current_user[:profile_picture]  if current_user%>" alt="dropdown link">
+          <%= current_user.name %>
+          <img class = "picture-navbar" src="<%= current_user[:profile_picture] %>" alt="dropdown link">
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
           <span class="dropdown-item"><%= link_to "Log Out", logout_path, method: :delete %></span>
