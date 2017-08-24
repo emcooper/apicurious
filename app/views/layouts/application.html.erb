@@ -42,8 +42,8 @@
           <img class = "picture-navbar" src="<%= current_user[:profile_picture] %>" alt="dropdown link">
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <span class="dropdown-item"><%= link_to "Profile", profile_path %></span>
           <span class="dropdown-item"><%= link_to "Log Out", logout_path, method: :delete %></span>
-          <a class="dropdown-item" href="#">Another action</a>
         </div>
       </li>
     </ul>

@@ -29,11 +29,12 @@
 
 
 </div>
-  Recent Activity:
+  <h4 class = "text-center">Recent Activity</h4>
   <br>
     <% @user_profile.recent_activity.each do |activity| %>
   <br><br>
-  <%= "'#{activity[:message]}' committed to #{activity[:repo]}"  %>
+  <span class="badge badge-pill badge-primary commit-repo"> <%= activity[:repo] %></span>
+  <label class = "commit-message"><%= activity[:message] %></label>
   <% end %>
 
 </div>
