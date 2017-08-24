@@ -2,6 +2,10 @@
   <div class="row">
     <div class="col-md-3">
       <img class = "profile-picture" src="<%= @user_profile.profile_picture %>" alt="user_profile_picture">
+      <h5>Organizations</h5>
+      <% @user_profile.organizations.each do |org| %>
+      <p class = "organization"><%= org.name %></p>
+      <% end %>
     </div>
     <div class="col-md-9">
       <ul class = "nav nav-fill">

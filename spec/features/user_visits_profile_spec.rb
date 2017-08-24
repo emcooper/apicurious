@@ -6,7 +6,7 @@ RSpec.feature "User visits profile page" do
       click_link "Login with Github"
       visit profile_path
 
-      expect(page).to have_css(".organization")
+      expect(page).to have_content("Organization")
     end
   end
 end
