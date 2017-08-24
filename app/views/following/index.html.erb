@@ -1,0 +1,10 @@
+<h2>People You are Following</h2>
+
+<% @following.each do |following| %>
+  <h4 class = "name"><%= following.name %></h4>
+  <h5>5 Latest Commits</h5>
+  <% following.recent_activity[0..4].each do |activity| %>
+    <p class = "commit-message"><%= activity[:message] %></p>
+    <p class = "commit-repo"><%= activity[:repo] %></p>
+    <% end %>
+  <% end %>

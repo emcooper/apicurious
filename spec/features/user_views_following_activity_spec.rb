@@ -8,7 +8,8 @@ RSpec.feature "User clicks on following" do
       click_on "Following"
 
       expect(page).to have_css(".name")
-      expect(page).to have_css(".activity-summary")
+      expect(page).to have_css(".commit-message")
+      expect(page).to have_css(".commit-repo")
     end
   end
 end

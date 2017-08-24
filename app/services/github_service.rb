@@ -72,7 +72,7 @@ class GithubService < ApplicationController
     separated_commits = (commits.reject {|item| item.nil?}).flatten
     separated_commits.map do |commit|
       { message: commit[:message],
-        repo: commit[:url].split("/")[1].split("/commits")[0]
+        repo: commit[:url].split("/commits")[0].split("/").last
       }
     end
   end
