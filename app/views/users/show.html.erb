@@ -22,7 +22,7 @@
           <%= "Followers (#{@user_profile.num_followers})" %>
         </li>
         <li class = "nav-item">
-          <%= "Following (#{@user_profile.num_following})" %>
+          <%= link_to "Following (#{@user_profile.num_following})", following_path %>
         </li>
       </ul>
 </div>

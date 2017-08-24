@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/profile', to: 'users#show'
   get '/repositories', to: 'repositories#index'
+  get '/following', to: 'following#index'
 end
