@@ -40,6 +40,17 @@ class GithubService < ApplicationController
   end
 
   def recent_activity
-    data = get_url("/search/commits?q=committer-name:#{@user.username}")
+    data = get_url("/users/#{@user.username}/events")
+    commits = data.collect {|event| event[:payload][:commits]}
+    format_commits(commits)
+  end
+
+  def format_commits(commits)
+    separated_commits = (commits.reject {|item| item.nil?}).flatten
+    separated_commits.map do |commit|
+      { message: commit[:message],
+        repo: commit[:url].split("#{@user.username}/")[1].split("/commits")[0]
+      }
+    end
   end
 end

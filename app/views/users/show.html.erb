@@ -25,8 +25,8 @@
   Recent Activity:
   <br>
     <% @user_dashboard.recent_activity.each do |activity| %>
-  <br>
-  <li><%= activity  %></li>
+  <br><br>
+  <%= "'#{activity[:message]}' committed to #{activity[:repo]}"  %>
   <% end %>
 
 </div>
