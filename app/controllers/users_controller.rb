@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
   def show
-    @user_dashboard = UserDashboard.new(current_user)
+    @user_profile = UserProfile.new(current_user)
   end
 end

@@ -50,7 +50,13 @@ class GithubService < ApplicationController
     data.collect {|data| data[:name]}
   end
 
+  def organizations
+    data = get_url("/users/#{@user.username}/orgs")
+    data.collect {|data| data[:login]}
+  end
+
   private
+
   def format_commits(commits)
     separated_commits = (commits.reject {|item| item.nil?}).flatten
     separated_commits.map do |commit|

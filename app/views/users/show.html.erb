@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3">
-      <img class = "profile-picture" src="<%= @user_dashboard.profile_picture %>" alt="user_profile_picture">
+      <img class = "profile-picture" src="<%= @user_profile.profile_picture %>" alt="user_profile_picture">
     </div>
     <div class="col-md-9">
       <ul class = "nav nav-fill">
@@ -12,13 +12,13 @@
           <%= link_to "Repositories", repositories_path %>
         </li>
         <li class = "nav-item">
-          <%= "Starred (#{@user_dashboard.num_starred_repos})" %>
+          <%= "Starred (#{@user_profile.num_starred_repos})" %>
         </li>
         <li class = "nav-item">
-          <%= "Followers (#{@user_dashboard.num_followers})" %>
+          <%= "Followers (#{@user_profile.num_followers})" %>
         </li>
         <li class = "nav-item">
-          <%= "Following (#{@user_dashboard.num_following})" %>
+          <%= "Following (#{@user_profile.num_following})" %>
         </li>
       </ul>
 </div>
@@ -27,7 +27,7 @@
 </div>
   Recent Activity:
   <br>
-    <% @user_dashboard.recent_activity.each do |activity| %>
+    <% @user_profile.recent_activity.each do |activity| %>
   <br><br>
   <%= "'#{activity[:message]}' committed to #{activity[:repo]}"  %>
   <% end %>
