@@ -4,7 +4,7 @@
       <img class = "profile-picture" src="<%= @user_profile.profile_picture %>" alt="user_profile_picture">
       <h5>Organizations</h5>
       <% @user_profile.organizations.each do |org| %>
-      <p class = "organization"><%= org.name %></p>
+      <h4><span class="badge badge-light organization"><%= org.name %></span></h5> <br>
       <% end %>
     </div>
     <div class="col-md-9">
@@ -33,7 +33,7 @@
   <br>
     <% @user_profile.recent_activity.each do |activity| %>
   <br><br>
-  <span class="badge badge-pill badge-primary commit-repo"> <%= activity[:repo] %></span>
+  <span class="badge badge-primary commit-repo"> <%= activity[:repo] %></span>
   <label class = "commit-message"><%= activity[:message] %></label>
   <% end %>
 
