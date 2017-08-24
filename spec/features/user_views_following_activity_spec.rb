@@ -1,9 +1,9 @@
 RSpec.feature "User clicks on following" do
   it "they see a summary of activity of people they follow" do
     VCR.use_cassette("features/user_views_following") do
-      stub_omniauth
-      visit root_path
-      click_link "Login with Github"
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
       visit profile_path
       click_on "Following"
 
