@@ -41,8 +41,7 @@ class GithubService < ApplicationController
 
   def recent_activity
     data = get_url("/users/#{@user.username}/events")
-    commits = data.collect {|event| event[:payload][:commits]}
-    format_commits(commits)
+    format_commits(data)
   end
 
   def repositories
@@ -55,13 +54,25 @@ class GithubService < ApplicationController
     data.collect {|data| data[:login]}
   end
 
+  def following
+    data = get_url("/users/emcooper/following")
+    following_names = data.collect {|data| data[:login]}
+    following_names.map do |name|
+      {
+        name: name,
+        recent_activity: format_commits(get_url("/users/#{name}/events"))
+      }
+    end
+  end
+
   private
 
-  def format_commits(commits)
+  def format_commits(data)
+    commits = data.collect {|event| event[:payload][:commits]}
     separated_commits = (commits.reject {|item| item.nil?}).flatten
     separated_commits.map do |commit|
       { message: commit[:message],
-        repo: commit[:url].split("#{@user.username}/")[1].split("/commits")[0]
+        repo: commit[:url].split("/")[1].split("/commits")[0]
       }
     end
   end
