@@ -55,7 +55,7 @@ class GithubService < ApplicationController
   end
 
   def following
-    data = get_url("/users/emcooper/following")
+    data = get_url("/users/#{@user.username}/following")
     following_names = data.collect {|data| data[:login]}
     following_names.map do |name|
       {
